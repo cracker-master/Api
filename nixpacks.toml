@@ -1,0 +1,36 @@
+[phases.setup]
+nixPkgs = [
+  "python311",
+  "chromium",
+  "chromiumdriver",
+  "nss",
+  "nspr",
+  "atk",
+  "cups",
+  "libdrm",
+  "dbus",
+  "libxkbcommon",
+  "xorg.libXcomposite",
+  "xorg.libXdamage",
+  "xorg.libXfixes",
+  "xorg.libXrandr",
+  "mesa",
+  "expat",
+  "xorg.libxcb",
+  "xorg.libXext",
+  "xorg.libX11",
+  "pango",
+  "cairo",
+  "glib",
+  "gdk-pixbuf",
+]
+
+[phases.install]
+cmds = [
+  "pip install -r requirements.txt",
+  "playwright install chromium",
+  "playwright install-deps chromium"
+]
+
+[start]
+cmd = "python telegram_bot.py"
